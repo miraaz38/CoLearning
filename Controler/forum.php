@@ -34,9 +34,11 @@ if (isset($_GET['id']) AND !empty($_GET['id'])) {
         echo $c_msg;
     } ?>
     <br/><br/>
+    <div id="espace-commentaires">
     <?php while ($c = $commentaires->fetch()) { ?>
         <div class="div-commentaires"><b><?= $c['pseudo'] ?>:</b> <?= $c['commentaire'] ?><br/> <?= $c['date'] ?><br/></div>
     <?php } ?>
+    </div>
     <?php
 }
 ?>
