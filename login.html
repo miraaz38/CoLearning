@@ -28,17 +28,17 @@
       <div class="card card-login mx-auto mt-5">
         <div class="card-header">Connexion</div>
         <div class="card-body">
-          <form>
+          <form class="connexion" action="Controler/Connexion.php" method="post">
             <div class="form-group">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Adresse Email" required="required" autofocus="autofocus">
-                <label for="inputEmail">Adresse Email</label>
+                <input type="text" id="login" class="form-control" placeholder="Login" required="required" autofocus="autofocus">
+                <label for="login">Login</label>
               </div>
             </div>
             <div class="form-group">
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required="required">
-                <label for="inputPassword">Mot de passe</label>
+                <input type="password" id="mdp" class="form-control" placeholder="Mot de passe" required="required">
+                <label for="mdp">Mot de passe</label>
               </div>
             </div>
             <div class="form-group">
@@ -49,7 +49,7 @@
                 </label>
               </div>
             </div>
-            <a class="btn btn-primary btn-block" href="accueil.html">Se Connecter</a>
+            <button class="btn btn-primary btn-block" type="submit">Se Connecter</button>
           </form>
           <div class="text-center">
             <a class="d-block small mt-3" href="register.html">Créer un compte</a>

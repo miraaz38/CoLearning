@@ -23,13 +23,15 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
 
+    <link href="style/style.css" rel="stylesheet">
+
   </head>
 
-  <body id="page-top">
+  <body id="override-bootstrap">
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">Kolearning</a>
+      <a class="navbar-brand mr-1" href="index.html">CoLearning</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -66,9 +68,9 @@
             <i class="fas fa-user-circle fa-fw"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#">Paramètre</a>
+            <a class="dropdown-item" href="#">Paramètres</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Deconnexion</a>
+            <a class="dropdown-item" href="Controler/Deconnexion.php?logout='true'" data-toggle="modal" data-target="#logoutModal">Deconnexion</a>
           </div>
         </li>
       </ul>
@@ -101,6 +103,18 @@
              <i class="fas fa-search"></i>
             <span>Chercher un groupe</span></a>
         </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link" onclick="envoiMail">            
+              <i class="fas fa-envelope"></i>
+             <span>Envoyer un mail</span></a>
+        </li>
+
+        <script>
+          function envoiMail(){
+            var zone = document.getElementById("content-wrapper");
+          }
+          
+        </script>
 
 
         <li class="nav-item dropdown">
@@ -126,15 +140,15 @@
         <div class="container-fluid">
 
           <!-- Breadcrumbs-->
-          <ol class="breadcrumb">
+          <!--<ol class="breadcrumb">
             <li class="breadcrumb-item">
               <a href="#">Dashboard</a>
             </li>
             <li class="breadcrumb-item active">Overview</li>
-          </ol>
+          </ol>-->
 
           <!-- Icon Cards-->
-          <div class="column">
+          <!--<div class="column">
             <div class="col-xl-3 col-sm-6 mb-3">
               <div class="card text-white bg-primary o-hidden h-100">
                 <div class="card-body">
@@ -199,7 +213,7 @@
                 </a>
               </div>
             </div>
-          </div>
+          </div>-->
 
         <!-- Sticky Footer -->
         <footer class="sticky-footer">

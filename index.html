@@ -23,9 +23,11 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
 
+    <link href="style/style.css" rel="stylesheet">
+
   </head>
 
-  <body id="page-top">
+  <body id="override-bootstrap">
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
@@ -59,6 +61,19 @@
       <div id="content-wrapper">
 
           <div class="row">
+
+              <div id="separeImage">
+                  <div class="alert alert-info">
+                    <strong>Jamais au courant des examens ?</strong> Kolearning vous envoie des rappels</div>                
+                <div class="alert alert-info">
+                    <strong>En retard dans vos révisions ?</strong> Kolearning contient des QCM</div>
+                <div class="alert alert-info">
+                    <strong>Envie d'aider vos camarades ?</strong> Kolearning permet de partager des fichiers</div>
+                <div class="alert alert-info">
+                    <strong>Toutes ces fonctionnalitées dans un application !</strong> Kolearning !!</div>
+                </div>
+
+            <div id="separeImage">
           
           <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -68,13 +83,13 @@
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img class="d-block w-100" src="data/img/enretard.jpg" alt="First slide">
+                    <img class="d-block w-100" src="data/img/notification.jpg" alt="First slide">
                   </div>
                   <div class="carousel-item">
                     <img class="d-block w-100" src="data/img/rappel.png" alt="Second slide">
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="data/img/bonnenote.jpg" alt="Third slide">
+                    <img class="d-block w-100" src="data/img/icone.png" alt="Third slide">
                   </div>
                 </div>
                 <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
@@ -86,13 +101,60 @@
                 <span class="sr-only">Next</span>
                 </a>
               </div>
+          </div>
 
               <script> $('.carousel').carousel({
                     interval: 200000
                   }) </script>
 
-            <div class="well well-lg">Coucou</div>
-      </div>
+            
+        </div>
+        <div class="row">            
+
+          <div id="separeImage">
+        
+        <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                  <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel2" data-slide-to="1"></li>
+                  <li data-target="#myCarousel2" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block w-100" src="data/img/notification.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="data/img/rappel.png" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="data/img/icone.png" alt="Third slide">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#myCarousel2" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#myCarousel2" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+
+            <script> $('.carousel').carousel({
+                  interval: 200000
+                }) </script>
+
+            <div id="separeImage" class="alertOrange">
+                <div class="alert alert-info">
+                  <strong>Jamais au courant des examens ?</strong> Kolearning vous envoie des rappels</div>                
+              <div class="alert alert-info">
+                  <strong>En retard dans vos révisions ?</strong> Kolearning contient des QCM</div>
+              <div class="alert alert-info">
+                  <strong>Envie d'aider vos camarades ?</strong> Kolearning permet de partager des fichiers</div>
+              <div class="alert alert-info">
+                  <strong>Toutes ces fonctionnalitées dans un application !</strong> Kolearning !!</div>
+              </div>
       </div>
 
         <!-- Sticky Footer -->

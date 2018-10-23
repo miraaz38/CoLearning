@@ -1,0 +1,19 @@
+#override-bootstrap .bg-dark{
+    background-color: #ED7F10!important;
+}
+
+#override-bootstrap .sidebar{
+    background-color: #008AFF!important;
+}
+
+#override-bootstrap #separeImage{
+    margin: 3%;
+}
+
+#override-bootstrap .navbar{
+    padding: 1rem 1rem;
+}
+
+#override-bootstrap .alertOrange .alert-info{
+    background-color: #F1BDA2;
+}
