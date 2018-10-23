@@ -23,9 +23,15 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
 
+    <link href="style/style.css" rel="stylesheet">
+
   </head>
 
-  <body id="page-top">
+  
+
+  <body id="override-bootstrap" onload="init()">
+
+      
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
@@ -101,6 +107,13 @@
              <i class="fas fa-search"></i>
             <span>Chercher un groupe</span></a>
         </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link">            
+              <i class="fas fa-envelope"></i>
+             <span id="envoiMail">Envoyer un mail</span></a>
+        </li>
+
+        
 
 
         <li class="nav-item dropdown">
@@ -125,16 +138,21 @@
 
         <div class="container-fluid">
 
+          <div id="zone_affichage">
+
+
+          </div>
+
           <!-- Breadcrumbs-->
-          <ol class="breadcrumb">
+          <!--<ol class="breadcrumb">
             <li class="breadcrumb-item">
               <a href="#">Dashboard</a>
             </li>
             <li class="breadcrumb-item active">Overview</li>
-          </ol>
+          </ol>-->
 
           <!-- Icon Cards-->
-          <div class="column">
+          <!--<div class="column">
             <div class="col-xl-3 col-sm-6 mb-3">
               <div class="card text-white bg-primary o-hidden h-100">
                 <div class="card-body">
@@ -199,7 +217,7 @@
                 </a>
               </div>
             </div>
-          </div>
+          </div>-->
 
         <!-- Sticky Footer -->
         <footer class="sticky-footer">
@@ -258,6 +276,7 @@
     <!-- Demo scripts for this page-->
     <script src="js/demo/datatables-demo.js"></script>
     <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/monJs.js"></script>
 
   </body>
 

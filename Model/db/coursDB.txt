@@ -1,0 +1,1 @@
+1|IHM|IHM : Interraction Homme Machine. Ce cours présente les principes élémentaires d’ergonomie applicables à la conception d'application.|eric.ceret@iut2.univ-grenoble-alpes.fr
