@@ -1,7 +1,5 @@
 <?php
 
-
-
 $dao = new DAO();
 
 require_once("etudiant.class.php");
