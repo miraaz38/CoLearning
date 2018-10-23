@@ -35,7 +35,7 @@ if (isset($_GET['id']) AND !empty($_GET['id'])) {
     } ?>
     <br/><br/>
     <?php while ($c = $commentaires->fetch()) { ?>
-        <b><?= $c['pseudo'] ?>:</b> <?= $c['commentaire'] ?><br/> <?= $c['date'] ?><br/>
+        <div class="div-commentaires"><b><?= $c['pseudo'] ?>:</b> <?= $c['commentaire'] ?><br/> <?= $c['date'] ?><br/></div>
     <?php } ?>
     <?php
 }
