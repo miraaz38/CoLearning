@@ -31,13 +31,13 @@
           <form class="connexion" action="Controler/Connexion.php" method="post">
             <div class="form-group">
               <div class="form-label-group">
-                <input type="text" id="login" class="form-control" placeholder="Login" required="required" autofocus="autofocus">
+                <input type="text" id="login" name="login" class="form-control" placeholder="Login" required="required" autofocus="autofocus">
                 <label for="login">Login</label>
               </div>
             </div>
             <div class="form-group">
               <div class="form-label-group">
-                <input type="password" id="mdp" class="form-control" placeholder="Mot de passe" required="required">
+                <input type="password" id="mdp" name="mdp" class="form-control" placeholder="Mot de passe" required="required">
                 <label for="mdp">Mot de passe</label>
               </div>
             </div>
@@ -49,7 +49,7 @@
                 </label>
               </div>
             </div>
-            <button class="btn btn-primary btn-block" type="submit">Se Connecter</button>
+            <button class="btn btn-primary btn-block" type="submit" name="valider">Se Connecter</button>
           </form>
           <div class="text-center">
             <a class="d-block small mt-3" href="register.php">Créer un compte</a>

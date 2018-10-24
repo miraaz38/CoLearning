@@ -102,6 +102,21 @@ class DAO
     return $mail[0];
   }
 
+  function getQuestionForumID($idQuFo){
+    $question = $this->db->prepare("SELECT * FROM questionsForum WHERE idQuestionF = ?");
+    $question->execute(array($idQuFo));
+    $question = $question->fetchAll();
+    return $question[0];
+  }
+
+  function getCommentairesQuestion($idQuestion){
+    $commentaires = $this->db->prepare('SELECT * FROM commentaires WHERE numQuestionF = ? ORDER BY numQuestionF DESC');
+    //$commentaires->bindParam(1, $idQuestion);
+    $commentaires->execute(array($idQuestion));
+    $commentaires = $commentaires->fetchAll();
+    return $commentaires;
+  }
+
 }
 
   ?>
