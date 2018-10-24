@@ -2,7 +2,11 @@
 session_start();
 include_once("../Model/colearningDAO_class.php");
 
-if (isset($_POST['login']) && isset($_POST['mdp'])) {
+var_dump(isset($_POST['valider']));
+var_dump(isset($_POST['login']));
+var_dump(isset($_POST['mdp']));
+
+if (isset($_POST['valider']) && isset($_POST['login']) && isset($_POST['mdp'])) {
     $login = $_POST['login'];
     $mdp = $_POST['mdp'];
 
