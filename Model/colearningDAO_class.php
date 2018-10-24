@@ -1,4 +1,6 @@
-<?php
+numDevoir$numDevoir$numDevoir<?php
+
+
 
 $dao = new DAO();
 
@@ -9,7 +11,7 @@ require_once("questionsQuizz.class.php");
 require_once("quizz.class.php");
 
 // require_once("admins.class.php");
-// require_once("appartientA.class.php");
+require_once("appartientA.class.php");
 // require_once("commentaires.class.php");
 require_once("devoirs.class.php");
 // require_once("forums.class.php");
@@ -19,7 +21,6 @@ require_once("devoirs.class.php");
 // require_once("resDevoir.class.php");
 // require_once("resQuestion.class.php");
 // require_once("ressources.class.php");
-
 
 class DAO
 {
@@ -34,7 +35,7 @@ class DAO
     }
 
     function maxIdUser():int{
-      $req = 'SELECT max(idUser) from user';
+      $req = 'SELECT max(idEtu) from etudiant';
       $sth = $this->db->query($req);
       $result = $sth->fetch();
       return $result[0];
@@ -48,7 +49,7 @@ class DAO
     }
 
     function creerGroupe($idGroupe, $nomGroupe,$admin){
-      $req = $this->db->prepare('INSERT INTO user(idGroupe,nomGroupe,admin)VALUES(:idGroupe, :nomGroupe, :admin)');
+      $req = $this->db->prepare('INSERT INTO etudiant(idGroupe,nomGroupe,admin)VALUES(:idGroupe, :nomGroupe, :admin)');
       $idGroupe = $this->maxIdGroupe() + 1;
       $req->execute(array(
         'idGroupe' => $idGroupe,
@@ -59,7 +60,7 @@ class DAO
     }
 
     function inscrireUser($nomEtu, $prenomEtu, $mdpEtu,$loginEtu,$mailEtu,$numGroupe,$avatar){
-      $req = $this->db->prepare('INSERT INTO user(idEtu,nomEtu, prenomEtu, mdpEtu,loginEtu, mailEtu, numGroupe, avatarEtu)VALUES(:idEtu, :nomEtu, :prenomEtu, :mdpEtu, :loginEtu, :mailEtu, :numGroupe, :avatar)');
+      $req = $this->db->prepare('INSERT INTO etudiant(idEtu,nomEtu, prenomEtu, mdpEtu,loginEtu, mailEtu, numGroupe, avatarEtu)VALUES(:idEtu, :nomEtu, :prenomEtu, :mdpEtu, :loginEtu, :mailEtu, :numGroupe, :avatar)');
       $idEtu = $this->maxIdUser() + 1;
       $mdp = password_hash($mdp, PASSWORD_DEFAULT);
       $req->execute(array(
@@ -77,13 +78,10 @@ class DAO
 
     // Etant donné un login et un mdp donné, on vérifie que les deux existent/concordent
   function verifConnexion($loginEtu, $mdp){
-
     $stmt = $this->db->prepare("SELECT mdpEtu FROM etudiant WHERE loginEtu = ?");
     $stmt->bindParam(1, $loginEtu);
     $stmt->execute();
     $res = $stmt->fetchAll();
-
-    var_dump(res);
 
     if($stmt && isset($res[0]) && ($mdp == $res[0]['mdpEtu'])){
       return true;
@@ -96,10 +94,19 @@ class DAO
   // Etant donné un id, on récupère un objet User
 
   function getUsers(){
-      $stmt = $this->db->prepare("SELECT * FROM etudiants");
+      $stmt = $this->db->prepare("SELECT * FROM etudiant");
       $stmt->execute();
       $users = $stmt->fetchAll(PDO::FETCH_CLASS, "etudiant");
       return $users;
+  }
+
+  function getUsersById($idEtu){
+    $req = $this->db->prepare('SELECT * from etudiant WHERE idEtu=:idEtu');
+    $req->execute(array(
+      'idEtu' => $idEtu
+    ));
+    $etu = $req->fetchAll(PDO::FETCH_CLASS, "etudiant");
+    return $etu[0];
   }
 
   // Etant donné un login, on récupère l'id de l'utilisateur
@@ -108,7 +115,7 @@ class DAO
       $stmt->bindParam(1, $login);
       $stmt->execute();
       $res = $stmt->fetchAll();
-      return $res[0]["idEtu"];
+      return $res[0];
   }
 
   function getMailEtu($idEtu){
@@ -117,21 +124,6 @@ class DAO
     $stmt->execute();
     $mail = $stmt->fetchAll();
     return $mail[0];
-  }
-
-  function getQuestionForumID($idQuFo){
-    $question = $this->db->prepare("SELECT * FROM questionsForum WHERE idQuestionF = ?");
-    $question->execute(array($idQuFo));
-    $question = $question->fetchAll();
-    return $question[0];
-  }
-
-  function getCommentairesQuestion($idQuestion){
-    $commentaires = $this->db->prepare('SELECT * FROM commentaires WHERE numQuestionF = ? ORDER BY numQuestionF DESC');
-    //$commentaires->bindParam(1, $idQuestion);
-    $commentaires->execute(array($idQuestion));
-    $commentaires = $commentaires->fetchAll();
-    return $commentaires;
   }
 
   //------------------------ Fonctions en rapport avec les cours ---------
@@ -162,6 +154,18 @@ class DAO
     return $result[0];
   }
 
+  function getCoursDevoir($numDevoir){
+    $req = $this->db->prepare('SELECT numCours from devoirs WHERE idDev=:numDevoir');
+    $req->execute(array(
+      'numDevoir' => $numDevoir
+    ));
+    $result = $req->fetch();
+
+    $cours= $this->getCoursById($result[0]);
+
+    return $cours;
+  }
+
   //--------------------------- Fonctions en rapport avec les Quizz ------
   function maxIdQuizz():int{
     $req = 'SELECT max(idQuizz) from quizz';
@@ -180,20 +184,20 @@ class DAO
     return $result[0];
   }
 
-    function maxIdQuizzCours($numCours):int{
-      $req =$this->db->prepare('SELECT max(idQuizz) from quizz where numCours=:numCours');
+    function maxIdQuizzDevoir($numDevoir):int{
+      $req =$this->db->prepare('SELECT max(idQuizz) from quizz where numDevoir=:numDev');
       $req->execute(array(
-        'numCours' => $numCours
+        'numDev' => $numDevoir
       ));
       $result = $req->fetch();
       return $result[0];
   }
 
 
-  function nbQuestionQuizzCours($numCours):int{
-    $req =$this->db->prepare('SELECT count(*) from questionsQuizz where numCours=:numCours');
+  function nbQuestionQuizz($numDevoir):int{
+    $req =$this->db->prepare('SELECT count(*) from questionsQuizz where numDevoir=:numDevoir');
     $req->execute(array(
-      'numCours' => $numCours
+      'numDevoir' => $numDevoir
     ));
     $result = $req->fetch();
     return $result[0];
@@ -209,33 +213,33 @@ class DAO
   }
 
 
-  function creerQuizz($libelle, $numCours){
-    $req = $this->db->prepare('INSERT INTO quizz(idQuizz,libelle,numCours)VALUES(:idQuizz, :libelle, :numCours)');
+  function creerQuizz($libelle, $numDevoir){
+    $req = $this->db->prepare('INSERT INTO quizz(idQuizz,libelle,numDevoir)VALUES(:idQuizz, :libelle, :numDev)');
     $idQuizz = $this->maxIdQuizz() + 1;
     $req->execute(array(
       'idQuizz' => $idQuizz,
       'libelle' => $libelle,
-      'numCours' => $numCours
+      'numDev' => $numDevoir
     ));
   }
 
 
-function getQuestionQuizzCours($numCours){
-  $req = $this->db->prepare('SELECT * from questionsQuizz WHERE numCours=:numCours');
+function getQuestionQuizzDevoir($numDevoir){
+  $req = $this->db->prepare('SELECT * from questionsQuizz WHERE numDevoir=:numDevoir');
   $req->execute(array(
-    'numCours' => $numCours
+    'numDevoir' => $numDevoir
   ));
   $result = $req->fetchAll(PDO::FETCH_CLASS, "QuestionQuizz");
   return $result;
 
 }
 
-  function creerQuestionQuizz($numCours,$image,$reponseJuste, $reponseFausse1, $reponseFausse2){
-    $req = $this->db->prepare('INSERT INTO questionsQuizz(idQuizz,libelle,numCours,image, reponseJuste, reponseFausse1,reponseFausse2)VALUES(:idQuizz, :libelle, :numCours,:image, :reponseJuste, :reponseFausse1,:reponseFausse2)');
+  function creerQuestionQuizz($numDevoir,$image,$reponseJuste, $reponseFausse1, $reponseFausse2){
+    $req = $this->db->prepare('INSERT INTO questionsQuizz(idQuizz,libelle,numCours,image, reponseJuste, reponseFausse1,reponseFausse2)VALUES(:idQuizz, :libelle, :numDevoir,:image, :reponseJuste, :reponseFausse1,:reponseFausse2)');
     $idQuestionQuizz = $this->maxIdQuestionQuizz() + 1;
     $req->execute(array(
       'idQuestionQuizz' => $idQuestionQuizz,
-      'numCours' => $numCours,
+      'numDevoir' => $numDevoir,
       'image' => $image,
       'reponseJuste' => $reponseJuste,
       'reponseFausse1' => $reponseFausse1,
@@ -264,19 +268,19 @@ function getQuestionQuizzCours($numCours){
   function getQuestionQuizzById($idQuestionQuizz){
     $req = $this->db->prepare('SELECT * from questionsQuizz WHERE idQuestion=:$idQuestionQuizz');
     $req->execute(array(
-      'idQuestion' => $idQuestionQuizz;
+      'idQuestion' => $idQuestionQuizz
     ));
     $result = $req->fetchAll(PDO::FETCH_CLASS, "QuestionQuizz");
     return $result[0];
   }
 
 //Fonction remplissant la table AppartientA qui contient le num d'une question et le quizz a laquelle elle appartient
-  function associerQuestionQuizz($numCours, $nbQuestion){
-    $numQuizz = $this->maxIdQuizzCours($numCours); //recupère le numero du dernierQuizz
-    $result=$this->getQuestionQuizzCours($numCours);
+  function associerQuestionQuizz($numDevoir, $nbQuestion){
+    $numQuizz = $this->maxIdQuizzDevoir($numDevoir); //recupère le numero du dernierQuizz
+    $result=$this->getQuestionQuizzDevoir($numDevoir);
     $questions=shuffle($result); // récupère toutes les questions qui a comme sujet le cours et mélange
-    if ($nbQuestion> $this->nbQuestionQuizz($numCours)){ // l'élève a pu choisir le nombre de question du quizz mais on b=vérifie qu'il y ait suffisemment de question pour créer autant de questions qu'il le veut
-      $nbQuestion = $this->nbQuestionQuizz();
+    if ($nbQuestion> $this->nbQuestionQuizz($numDevoir)){ // l'élève a pu choisir le nombre de question du quizz mais on b=vérifie qu'il y ait suffisemment de question pour créer autant de questions qu'il le veut
+      $nbQuestion = $this->nbQuestionQuizz($numDevoir);
     }
     for($i=0; $i<$nbQuestion; $i++){// on associe les questions au quizz
       $this->insererAppartientA($numQuizz, $result[$i]->idQuestion);
@@ -284,25 +288,25 @@ function getQuestionQuizzCours($numCours){
 
   }
 
-  function nouveauQuizz($libelle, $numCours, $nbQuestion){
-    $this->creerQuizz($libelle, $numCours); // On crée un quizz
-    $this->associerQuestionQuizz($numCours, $nbQuestion);//et ensuite on lui associe des questions
+  function nouveauQuizz($libelle, $numDevoir, $nbQuestion){
+    $this->creerQuizz($libelle, $numDevoir); // On crée un quizz
+    $this->associerQuestionQuizz($numDevoir, $nbQuestion);//et ensuite on lui associe des questions
 
   }
 
-  function getQuizzCours($numCours){
-    $req = $this->db->prepare('SELECT * from quizz WHERE numCours=:numCours');
+  function getQuizzDevoir($numDevoir){
+    $req = $this->db->prepare('SELECT * from quizz WHERE numDevoir=:numDevoir');
     $req->execute(array(
-      'numCours' => $numCours
+      'numDevoir' => $numDevoir
     ));
     $result = $req->fetchAll(PDO::FETCH_CLASS, "Quizz");
     return $result;
   }
 
-  function getNbQuizzCours($numCours):int{
-    $req = $this->db->prepare('SELECT count(idQuizz) from quizz WHERE numCours=:numCours');
+  function getNbQuizzDevoir($numDevoir):int{
+    $req = $this->db->prepare('SELECT count(idQuizz) from quizz WHERE numDevoir=:numDevoir');
     $req->execute(array(
-      'numCours' => $numCours
+      'numDevoir' => $numDevoir
     ));
     $result = $req->fetch();
     return $result[0];
@@ -371,6 +375,7 @@ function getDevoirsById($idDev){
   $result = $req->fetchAll(PDO::FETCH_CLASS, "Devoirs");
   return $result[0];
 }
+
 
 }
 
