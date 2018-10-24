@@ -18,6 +18,14 @@
     background-color: #F1BDA2;
 }
 
+#override .container{
+    width: 100%;
+    padding-right: 5%;
+    padding-left: 5%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .btn-file {
     position: relative;
     overflow: hidden;
