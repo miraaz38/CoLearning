@@ -10,6 +10,9 @@ if (isset($_POST['valider']) && isset($_POST['login']) && isset($_POST['mdp'])) 
     $login = $_POST['login'];
     $mdp = $_POST['mdp'];
 
+    var_dump($login);
+    var_dump($_SESSION['login']);
+
     if ($dao->verifConnexion($login, $mdp)) {
         $_SESSION['id'] = $dao->getUserId($login);
         $_SESSION['login'] = $login;
@@ -23,8 +26,8 @@ if (isset($_POST['valider']) && isset($_POST['login']) && isset($_POST['mdp'])) 
 }
 
 if (!isset($_SESSION["id"])) {
-    include("../login.html");
-} else {
+    include("../index.html");
+} else{
     header('Location: ../accueil.html');
 }
 
