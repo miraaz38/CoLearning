@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Se Connecter</title>
+    <title>SB Admin - Forgot Password</title>
 
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,34 +26,24 @@
 
     <div class="container">
       <div class="card card-login mx-auto mt-5">
-        <div class="card-header">Connexion</div>
+        <div class="card-header">Reset Password</div>
         <div class="card-body">
-          <form class="connexion" action="Controler/Connexion.php" method="post">
+          <div class="text-center mb-4">
+            <h4>Forgot your password?</h4>
+            <p>Enter your email address and we will send you instructions on how to reset your password.</p>
+          </div>
+          <form>
             <div class="form-group">
               <div class="form-label-group">
-                <input type="text" id="login" class="form-control" placeholder="Login" required="required" autofocus="autofocus">
-                <label for="login">Login</label>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Enter email address" required="required" autofocus="autofocus">
+                <label for="inputEmail">Enter email address</label>
               </div>
             </div>
-            <div class="form-group">
-              <div class="form-label-group">
-                <input type="password" id="mdp" class="form-control" placeholder="Mot de passe" required="required">
-                <label for="mdp">Mot de passe</label>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="remember-me">
-                  Se souvenir de moi
-                </label>
-              </div>
-            </div>
-            <button class="btn btn-primary btn-block" type="submit">Se Connecter</button>
+            <a class="btn btn-primary btn-block" href="login.php">Reset Password</a>
           </form>
           <div class="text-center">
-            <a class="d-block small mt-3" href="register.html">Créer un compte</a>
-            <a class="d-block small" href="forgot-password.html">Mot de passe oublié ?</a>
+            <a class="d-block small mt-3" href="register.php">Register an Account</a>
+            <a class="d-block small" href="login.php">Login Page</a>
           </div>
         </div>
       </div>

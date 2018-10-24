@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Forgot Password</title>
+    <title>Se Connecter</title>
 
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,24 +26,34 @@
 
     <div class="container">
       <div class="card card-login mx-auto mt-5">
-        <div class="card-header">Reset Password</div>
+        <div class="card-header">Connexion</div>
         <div class="card-body">
-          <div class="text-center mb-4">
-            <h4>Forgot your password?</h4>
-            <p>Enter your email address and we will send you instructions on how to reset your password.</p>
-          </div>
-          <form>
+          <form class="connexion" action="Controler/Connexion.php" method="post">
             <div class="form-group">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Enter email address" required="required" autofocus="autofocus">
-                <label for="inputEmail">Enter email address</label>
+                <input type="text" id="login" class="form-control" placeholder="Login" required="required" autofocus="autofocus">
+                <label for="login">Login</label>
               </div>
             </div>
-            <a class="btn btn-primary btn-block" href="login.html">Reset Password</a>
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="password" id="mdp" class="form-control" placeholder="Mot de passe" required="required">
+                <label for="mdp">Mot de passe</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="remember-me">
+                  Se souvenir de moi
+                </label>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Se Connecter</button>
           </form>
           <div class="text-center">
-            <a class="d-block small mt-3" href="register.html">Register an Account</a>
-            <a class="d-block small" href="login.html">Login Page</a>
+            <a class="d-block small mt-3" href="register.php">Créer un compte</a>
+            <a class="d-block small" href="forgot-password.php">Mot de passe oublié ?</a>
           </div>
         </div>
       </div>

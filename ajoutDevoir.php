@@ -46,7 +46,7 @@
                 <div class="form-group row">
                     <label for="example-date-input" class="col-2 col-form-label">Date</label>
                     <div class="col-10">
-                        <input class="form-control" type="date" value="2018-10-23" id="example-date-input">
+                        <input class="form-control" type="date" value="2018-10-23" id="example-date-input" required="required">
                     </div>
                 </div>
                 <div class="form-group">
@@ -55,11 +55,10 @@
                 </div>
                 <div class="container">
                         <div class="form-group">
-                            <label>Ajouter image</label>
                             <div class="input-group">
                                 <span class="input-group-btn">
                                     <span class="btn btn-default btn-file">
-                                        Choisir... <input type="file" id="imgInp">
+                                        Joindre : <input type="file" id="imgInp">
                                     </span>
                                 </span>
                                 <input type="text" class="form-control" readonly>
@@ -71,7 +70,7 @@
                 <button class="btn btn-primary btn-block" type="submit">Ajouter devoir</button>
               </form>
           <div class="text-center">
-            <a class="d-block small mt-3" href="accueil.html">Annuler</a>
+            <a class="d-block small mt-3" href="accueil.php">Annuler</a>
           </div>
         </div>
       </div>

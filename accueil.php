@@ -35,7 +35,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">CoLearning</a>
+      <a class="navbar-brand mr-1" href="accueil.php">KoLearning</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -92,18 +92,18 @@
             <span>Groupes</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="login.html">Groupe S4D</a>
+            <a class="dropdown-item" href="login.php">Groupe S4D</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="404.html">Groupe LV3</a>
+            <a class="dropdown-item" href="404.php">Groupe LV3</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="creerGroupe.html">
+          <a class="nav-link" href="creerGroupe.php">
             <i class="fas fa-plus-circle"></i>
             <span>Créer un groupe</span></a>
         </li>
         <li class="nav-item dropdown">
-           <a class="nav-link" href="chercherGroupe.html">            
+           <a class="nav-link" href="chercherGroupe.php">            
              <i class="fas fa-search"></i>
             <span>Chercher un groupe</span></a>
         </li>
@@ -123,13 +123,13 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="pagesDropdown">
               <h6 class="dropdown-header">Login Screens:</h6>
-              <a class="dropdown-item" href="login.html">Connexion</a>
-              <a class="dropdown-item" href="register.html">S'inscrire</a>
-              <a class="dropdown-item" href="forgot-password.html">Mot de passe oublié</a>
+              <a class="dropdown-item" href="login.php">Connexion</a>
+              <a class="dropdown-item" href="register.php">S'inscrire</a>
+              <a class="dropdown-item" href="forgot-password.php">Mot de passe oublié</a>
               <div class="dropdown-divider"></div>
               <h6 class="dropdown-header">Other Pages:</h6>
-              <a class="dropdown-item" href="404.html">404 Page</a>
-              <a class="dropdown-item" href="blank.html">Blank Page</a>
+              <a class="dropdown-item" href="404.php">404 Page</a>
+              <a class="dropdown-item" href="blank.php">Blank Page</a>
             </div>
           </li>
       </ul>
@@ -252,7 +252,7 @@
           <div class="modal-body">Selectionnez "Se déconnecter" si vous voulez vraiment vous déconnecter.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
-            <a class="btn btn-primary" href="login.html">Se déconnecter</a>
+            <a class="btn btn-primary" href="login.php">Se déconnecter</a>
           </div>
         </div>
       </div>

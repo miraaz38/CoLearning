@@ -31,7 +31,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">Kolearning</a>
+      <a class="navbar-brand mr-1" href="index.php">Kolearning</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -45,12 +45,12 @@
       <ul class="sidebar navbar-nav">
 
         <li class="nav-item">
-          <a class="nav-link" href="login.html">
+          <a class="nav-link" href="login.php">
             <i class="fas fa-sign-in-alt"></i>
             <span>Se connecter</span></a>
         </li>
         <li class="nav-item dropdown">
-           <a class="nav-link" href="register.html">            
+           <a class="nav-link" href="register.php">            
             <i class="fas fa-user-plus"></i>
             <span>S'inscrire</span></a>
         </li>
@@ -186,7 +186,7 @@
           <div class="modal-body">Selectionnez "Se déconnecter" si vous voulez vraiment vous déconnecter.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
-            <a class="btn btn-primary" href="login.html">Se déconnecter</a>
+            <a class="btn btn-primary" href="login.php">Se déconnecter</a>
           </div>
         </div>
       </div>
