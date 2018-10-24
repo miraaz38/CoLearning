@@ -134,12 +134,7 @@
           </li>
       </ul>
 
-      <div id="content-wrapper">
-
-        <div class="container-fluid">
-
-          <div id="zone_affichage">
-
+      <div id="test" class="d-flex justify-content-between">
             <div id="listeDevoir" class="invisible">
               <div class="container">
                 <h2>Nom du groupe</h2>
@@ -200,22 +195,23 @@
               </div>
             </div>
 
-
-
-
-          </div>
-
-        <!-- Sticky Footer -->
-        <footer class="sticky-footer">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Copyright © Kolearning 2018</span>
+            <div id="listeDevoir" class="visible">
+              <div class="container">
+                <h2>Cours associés</h2>
+                <div class="column">
+                  
+                </div>
+              </div>
             </div>
-          </div>
-        </footer>
+
+          
 
       </div>
       <!-- /.content-wrapper -->
+
+
+      
+
 
     </div>
     <!-- /#wrapper -->

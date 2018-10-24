@@ -18,12 +18,14 @@
     background-color: #F1BDA2;
 }
 
-#override .container{
+#override-bootstrap .col-xl-3{
+    max-width: 100%!important;
+    margin-top: 20px;
+}
+
+#override-bootstrap .container{
     width: 100%;
-    padding-right: 5%;
-    padding-left: 5%;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 50px;
 }
 
 .btn-file {
@@ -53,3 +55,4 @@
 #bootstrap_surcharge .card{
     max-width: 70%;
 }
+
