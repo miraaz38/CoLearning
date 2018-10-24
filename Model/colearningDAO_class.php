@@ -77,10 +77,13 @@ class DAO
 
     // Etant donné un login et un mdp donné, on vérifie que les deux existent/concordent
   function verifConnexion($loginEtu, $mdp){
+
     $stmt = $this->db->prepare("SELECT mdpEtu FROM etudiant WHERE loginEtu = ?");
     $stmt->bindParam(1, $loginEtu);
     $stmt->execute();
     $res = $stmt->fetchAll();
+
+    var_dump(res);
 
     if($stmt && isset($res[0]) && ($mdp == $res[0]['mdpEtu'])){
       return true;
