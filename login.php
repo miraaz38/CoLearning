@@ -52,8 +52,8 @@
             <button class="btn btn-primary btn-block" type="submit" name="valider">Se Connecter</button>
           </form>
           <div class="text-center">
-            <a class="d-block small mt-3" href="register.html">Créer un compte</a>
-            <a class="d-block small" href="forgot-password.html">Mot de passe oublié ?</a>
+            <a class="d-block small mt-3" href="register.php">Créer un compte</a>
+            <a class="d-block small" href="forgot-password.php">Mot de passe oublié ?</a>
           </div>
         </div>
       </div>
