@@ -1,6 +1,21 @@
+
+
 #override-bootstrap .bg-dark{
     background-color: #ED7F10!important;
 }
+
+@media (min-width: 768px){
+    .container {
+        width: 225px !important;
+        min-height: calc(100vh - 56px);
+    }
+}
+
+
+.container {
+    width: 300px !important;
+}
+
 
 #override-bootstrap .sidebar{
     background-color: #008AFF!important;
@@ -26,6 +41,10 @@
 #override-bootstrap .container{
     width: 100%;
     margin: 50px;
+}
+
+#override-bootstrap #listeDevoir .bg-primary{
+    background-color: #ED7F10!important;
 }
 
 .btn-file {
