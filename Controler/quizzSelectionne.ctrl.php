@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 require_once("../Model/colearningDAO_class.php");
 $db = new DAO();
@@ -26,3 +27,19 @@ if (isset($_GET['idQuizz'])){
 
 
  ?>
+=======
+<?php
+require_once("../Model/colearningDAO_class.php");
+$db = new DAO();
+
+if (isset($_GET['idQuizz'])){
+  $idQuizz =$_GET['idQuizz'];
+  $data['quizz']=$db->getQuizzById($idQuizz);
+  $questions = $db->getQuestionQuizz($idQuizz);
+
+
+}
+
+
+ ?>
+>>>>>>> b453b3fc7e984f82a93bc809c1784f76c46ce21e

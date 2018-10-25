@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 #override-bootstrap .bg-dark{
@@ -75,3 +76,63 @@
     max-width: 70%;
 }
 
+=======
+#override-bootstrap .bg-dark{
+    background-color: #ED7F10!important;
+}
+
+#override-bootstrap .sidebar{
+    background-color: #008AFF!important;
+}
+
+#override-bootstrap #separeImage{
+    margin: 3%;
+}
+
+#override-bootstrap .navbar{
+    padding: 1rem 1rem;
+}
+
+#override-bootstrap .alertOrange .alert-info{
+    background-color: #F1BDA2;
+}
+
+#override-bootstrap .col-xl-3{
+    max-width: 100%!important;
+    margin-top: 20px;
+}
+
+#override-bootstrap .container{
+    width: 100%;
+    margin: 50px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#img-upload{
+    width: 100%;
+}
+
+#bootstrap_surcharge .card{
+    max-width: 70%;
+}
+
+>>>>>>> b453b3fc7e984f82a93bc809c1784f76c46ce21e
