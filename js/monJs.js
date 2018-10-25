@@ -47,3 +47,14 @@ $(document).ready( function() {
         readURL(this);
     }); 	
 });
+
+
+function showDevoir(id) {
+    document.getElementById(id).setAttribute("class", "visible");
+    document.getElementById(id).setAttribute("onclick", "hideDevoir");
+}
+    
+function hideDevoir(id) {
+    document.getElementById(id).setAttribute("class", "invisible");
+    document.getElementById(id).setAttribute("onclick", "showDevoir");
+}                      

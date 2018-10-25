@@ -47,7 +47,7 @@ class DAO
     }
 
     function uploadRessource($url){
-        $updateavatar = this->db->prepare('INSERT INTO ressources(idRessource, url) VALUES (:idRessource,:url) ');
+        $updateavatar = $this->db->prepare('INSERT INTO ressources(idRessource, url) VALUES (:idRessource,:url) ');
         $updateavatar->execute(array(
             'idRessource' => $this->maxIdCommentaire() + 1,
             'url' => $url
@@ -92,7 +92,7 @@ class DAO
             'numGroupe' => $numGroupe,
             'avatar' => $avatar
         ));
-        echo '<p> Bienvenue sur kolabagenda' + $prenom + '</p>';
+        echo '<p> Bienvenue sur kolabagenda' + $prenomEtu + '</p>';
     }
 
     function maxIdUser(): int
