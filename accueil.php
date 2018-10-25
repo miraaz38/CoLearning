@@ -27,11 +27,11 @@
 
   </head>
 
-  
+
 
   <body id="override-bootstrap" onload="init()">
 
-      
+
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
@@ -103,23 +103,23 @@
             <span>Créer un groupe</span></a>
         </li>
         <li class="nav-item dropdown">
-           <a class="nav-link" href="chercherGroupe.php">            
+           <a class="nav-link" href="chercherGroupe.php">
              <i class="fas fa-search"></i>
             <span>Chercher un groupe</span></a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link">            
+            <a class="nav-link">
               <i class="fas fa-envelope"></i>
              <span id="envoiMail">Envoyer un mail</span></a>
         </li>
 
-        
+
 
 
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-fw fa-folder"></i>
-              <span>Pages</span> 
+              <span>Pages</span>
             </a>
             <div class="dropdown-menu" aria-labelledby="pagesDropdown">
               <h6 class="dropdown-header">Login Screens:</h6>
@@ -133,6 +133,7 @@
             </div>
           </li>
       </ul>
+      <h1>COUCOU</h1>
 
       <div id="test" class="d-flex justify-content-between">
             <div id="listeDevoir" class="invisible">
@@ -199,18 +200,18 @@
               <div class="container">
                 <h2>Cours associés</h2>
                 <div class="column">
-                  
+
                 </div>
               </div>
             </div>
 
-          
+
 
       </div>
       <!-- /.content-wrapper -->
 
 
-      
+
 
 
     </div>
@@ -238,7 +239,7 @@
           </div>
         </div>
       </div>
-    </div>   
+    </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
