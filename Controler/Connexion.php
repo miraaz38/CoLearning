@@ -26,9 +26,9 @@ if (isset($_POST['valider']) && isset($_POST['login']) && isset($_POST['mdp'])) 
 }
 
 if (!isset($_SESSION["id"])) {
-    include("../index.html");
+    include("../index.php");
 } else{
-    header('Location: ../accueil.html');
+    header('Location: ../accueil.php');
 }
 
 ?>
